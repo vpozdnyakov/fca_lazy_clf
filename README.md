@@ -16,9 +16,11 @@ The lazy classification method differs in that the classifier uses the entire tr
 $ pip install fca_lazy_clf
 ```
 
-###  Usage
+###  Requirements
 
-The classifier uses only attributes of types numpy.dtype('O'), np.dtype('int64') and attributes with 2 any values. Other attributes are not taken into account. The target attribute must be binary. The train and test data sets must be represented as pandas.DataFrame.
+The train and test data sets must be represented as pandas.DataFrame. The classifier uses only attributes of types numpy.dtype('O'), np.dtype('int64') and attributes with 2 any values. Other attributes will not be used. The target attribute must be binary.
+
+### Example
 
 ```python
 import fca_lazy_clf as fca
@@ -41,6 +43,7 @@ print(metrics.accuracy_score(y_test, y_pred))
 ```
 
 ### Parameters of the classifier
+
 * __bias__ — the decision to make if Support+ = Support−. There are three options: ```True``` (always set a positive class), ```False``` (always set a negative class), and ```'random'``` (set a random class). Read more in the report.
 * __threshold__ — threshold numeric value from 0 to 1. Read more in the report.
 
