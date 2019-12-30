@@ -1,14 +1,14 @@
 # Lazy binary classifier based on Formal Concept Analysis
 
-Usually, the work of the classifier can be divided into two steps: the selection of patterns in the training sample (training) and their use in the classification. The lazy classification method differs in that the first step is skipped, and the second step uses the entire training sample, which takes much longer, but can improve the accuracy of the classification (see report.pdf).
+Usually, the work of the classifier can be divided into two steps: the selection of patterns in the training sample (training) and their use in the classification. The lazy classification method differs in that the first step is skipped, and the second step uses the entire training sample, which takes much longer, but can improve the accuracy of the classification (see [report.pdf](report.pdf)).
 
 ### Contents of the repository:
-* report.pdf - report of the development
-* fca_lazy_clf - source code
-* lazyfca_heart_desease.ipynb - analysis of heart_desease dataset 
-* lazyfca_tic_tac_toe.ipynb - analysis of tic_tac_toe dataset 
-* tic-tac-toe - tic_tac_toe dataset
-* heart-disease-uci.zip - heart_desease dataset
+* [report.pdf](report.pdf) - report of the development
+* [fca_lazy_clf](fca_lazy_clf) - source code
+* [lazyfca_heart_desease.ipynb](lazyfca_heart_desease.ipynb) - analysis of heart_desease dataset 
+* [lazyfca_tic_tac_toe.ipynb](lazyfca_tic_tac_toe.ipynb) - analysis of tic_tac_toe dataset 
+* [tic-tac-toe](tic-tac-toe) - tic_tac_toe dataset
+* [heart-disease-uci.zip](heart-disease-uci.zip) - heart_desease dataset
 
 ### Installation
 
@@ -53,8 +53,8 @@ The train and test datasets must be represented as ```pandas.DataFrame```. The c
 
 ### Parameters of the classifier
 
-* __bias__ — the decision to make if Support+ = Support−. There are three options: ```'true'``` (always set a positive class), ```'false'``` (always set a negative class), and ```'random'``` (set a random class). Read more in the report.pdf.
-* __threshold__ — threshold numeric value from 0 to 1. Read more in the report.pdf.
+* __bias__ — the decision to make if Support+ = Support−. There are three options: ```'true'``` (always set a positive class), ```'false'``` (always set a negative class), and ```'random'``` (set a random class). Read more in the [report.pdf](report.pdf).
+* __threshold__ — threshold numeric value from 0 to 1. Read more in the [report.pdf](report.pdf).
 
 * __random__ — ```True``` to enable a mode that uses only a randomly selected portion of the training sample, ```False``` — to disable the mode.
 * __sample_share__ — if __random__ mode is used, this parameter sets the percentage of entries from the positive and negative set. Valid values in the range [0, 1].
