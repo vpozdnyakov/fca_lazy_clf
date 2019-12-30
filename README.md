@@ -3,7 +3,7 @@
 Usually, the work of the classifier can be divided into two steps: the selection of patterns in the training sample (training) and their use in the classification. The lazy classification method differs in that the first step is skipped, and the second step uses the entire training sample, which takes much longer, but can improve the accuracy of the classification (see [report.pdf](report.pdf)).
 
 ### Contents of the repository:
-* [report.pdf](report.pdf) - report of the development
+* [report.pdf](report.pdf) - report of development
 * [fca_lazy_clf](fca_lazy_clf) - source code
 * [lazyfca_heart_desease.ipynb](lazyfca_heart_desease.ipynb) - analysis of heart_desease dataset 
 * [lazyfca_tic_tac_toe.ipynb](lazyfca_tic_tac_toe.ipynb) - analysis of tic_tac_toe dataset 
