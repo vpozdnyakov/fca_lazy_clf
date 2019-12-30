@@ -18,7 +18,7 @@ $ pip install fca_lazy_clf
 
 ###  Requirements
 
-The train and test data sets must be represented as pandas.DataFrame. The classifier uses only attributes of types numpy.dtype('O'), np.dtype('int64') and attributes with 2 any values. Other attributes will not be used. The target attribute must be binary.
+The train and test datasets must be represented as pandas.DataFrame. The classifier uses only attributes of types numpy.dtype('O'), np.dtype('int64') and attributes with 2 any values. Other attributes will not be used. The target attribute must be binary.
 
 ### Example
 
