@@ -47,6 +47,7 @@ The train and test data sets must be represented as pandas.DataFrame. The classi
 >>> y_pred = clf.predict(X_test)
 
 >>> print(metrics.accuracy_score(y_test, y_pred))
+
 0.9716088328075709
 ```
 
