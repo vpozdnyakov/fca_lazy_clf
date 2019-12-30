@@ -44,7 +44,7 @@ print(metrics.accuracy_score(y_test, y_pred))
 
 ### Parameters of the classifier
 
-* __bias__ — the decision to make if Support+ = Support−. There are three options: ```True``` (always set a positive class), ```False``` (always set a negative class), and ```'random'``` (set a random class). Read more in the report.
+* __bias__ — the decision to make if Support+ = Support−. There are three options: ```'true'``` (always set a positive class), ```'false'``` (always set a negative class), and ```'random'``` (set a random class). Read more in the report.
 * __threshold__ — threshold numeric value from 0 to 1. Read more in the report.
 
 * __random__ — ```True``` to enable a mode that uses only a randomly selected portion of the training sample, ```False``` — to disable the mode.
