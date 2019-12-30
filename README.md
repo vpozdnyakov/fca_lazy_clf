@@ -54,8 +54,8 @@ The train and test datasets must be represented as ```pandas.DataFrame```. The c
 
 ### Parameters of the classifier
 
-* __bias__ — the decision to make if Support+ = Support−. There are three options: ```'true'``` (always set a positive class), ```'false'``` (always set a negative class), and ```'random'``` (set a random class). Read more in the [report.pdf](report.pdf).
+* __bias__ — the decision to make if ```Support+``` is equals to ```Support−```. There are three options: ```'positive'``` (always set a positive class), ```'negative'``` (always set a negative class), and ```'random'``` (set a random class). Read more in the [report.pdf](report.pdf).
 * __threshold__ — threshold numeric value from 0 to 1. Read more in the [report.pdf](report.pdf).
 
 * __random__ — ```True``` to enable a mode that uses only a randomly selected portion of the training sample, ```False``` — to disable the mode.
-* __sample_share__ — if __random__ mode is used, this parameter sets the percentage of entries from the positive and negative set. Valid values in the range [0, 1].
+* __sample_share__ — if __random__ mode is used, this parameter sets the percentage of entries from the positive and negative set. Valid values in the range from 0 to 1.
