@@ -131,7 +131,7 @@ The testing used a cross-validation approach --- each data set is randomly divid
 
 The model parameters were selected as:
 \begin{itemize}
-    \item \textbf{Bias} --- the decision to make if $Support^+ = Support^ -$. There are three options: True (always set a positive class), False (always set a negative class), and Random (set a random class).
+    \item \textbf{Bias} --- the decision to make if $Support^+ = Support^ -$. There are three options: Positive (always set a positive class), Negative (always set a negative class), and Random (set a random class).
     \item \textbf{Threshold} --- threshold value for the parameter $p \in [0, 1]$, which is used in the formula
     $$Support^+ = \frac{\sum_i |\Delta_i^+| \text{ if } S_i^+<p}{|G_+|}$$
     \item \textbf{Random} --- True to enable a mode that uses only a randomly selected portion of the training sample, False --- to disable the mode.
@@ -166,7 +166,7 @@ The classification time in seconds was also estimated. The test results are give
         \hline
     \end{tabular}
     
-    Tab. 1. Lazy classifier quality metrics for parameters \\Threshold = 0.000001, Random = False, Bias = False
+    Tab. 1. Lazy classifier quality metrics for parameters \\Threshold = 0.000001, Random = False, Bias = Negative
 \end{center}
 
 \begin{center}
@@ -189,7 +189,7 @@ The classification time in seconds was also estimated. The test results are give
         \hline
     \end{tabular}
     
-    Tab. 2. Lazy classifier quality metrics for parameters \\Threshold = 0.000001, Random = True, Sample share = 0.3, Bias = False
+    Tab. 2. Lazy classifier quality metrics for parameters \\Threshold = 0.000001, Random = True, Sample share = 0.3, Bias = Negative
 \end{center}
 
 \begin{center}
@@ -237,7 +237,7 @@ The classification time in seconds was also estimated. The test results are give
         \hline
     \end{tabular}
     
-    Tab. 4. Lazy classifier quality metrics for parameters \\ Threshold = 0.9, Random = True, Sample share = 0.3, Bias = False
+    Tab. 4. Lazy classifier quality metrics for parameters \\ Threshold = 0.9, Random = True, Sample share = 0.3, Bias = Negative
 \end{center}
 
 \begin{center}
@@ -260,7 +260,7 @@ The classification time in seconds was also estimated. The test results are give
         \hline
     \end{tabular}
     
-    Tab. 5. Lazy classifier quality metrics for parameters \\ Threshold = 0.9, Random = False, Bias = False
+    Tab. 5. Lazy classifier quality metrics for parameters \\ Threshold = 0.9, Random = False, Bias = Negative
 \end{center}
 
 \begin{center}
@@ -288,9 +288,9 @@ The classification time in seconds was also estimated. The test results are give
 
 \section{Conclusion}
 
-From the results obtained, it can be seen that on the Tic-Tac-Toe data set, the lazy classifier managed to achieve perfect accuracy (1.0) with the parameters Threshold = 0.000001, Random = False, Bias = False. The prediction time for each set averaged 60 seconds. If we use Random mode, the time is significantly reduced (up to 21 seconds), although the accuracy is still quite high --- 0.98. The decision tree also achieves a high accuracy of 0.98, but the classification is almost instantaneous --- on average 0 seconds, which is much better than the lazy classification in any mode.
+From the results obtained, it can be seen that on the Tic-Tac-Toe data set, the lazy classifier managed to achieve perfect accuracy (1.0) with the parameters Threshold = 0.000001, Random = False, Bias = Negative. The prediction time for each set averaged 60 seconds. If we use Random mode, the time is significantly reduced (up to 21 seconds), although the accuracy is still quite high --- 0.98. The decision tree also achieves a high accuracy of 0.98, but the classification is almost instantaneous --- on average 0 seconds, which is much better than the lazy classification in any mode.
 
-For the Heart Disease data set, the lazy classifier achieves the best accuracy (0.82) with the parameters Threshold = 0.9, Random = True, Sample share = 0.3, Bias = False, and the average running time is 5 seconds. Disabling Random mode does not increase accuracy, and it also increases the calculation time. The logistic regression model achieves slightly higher accuracy (0.83), but it works much faster --- the average running time is 0 seconds.
+For the Heart Disease data set, the lazy classifier achieves the best accuracy (0.82) with the parameters Threshold = 0.9, Random = True, Sample share = 0.3, Bias = Negative, and the average running time is 5 seconds. Disabling Random mode does not increase accuracy, and it also increases the calculation time. The logistic regression model achieves slightly higher accuracy (0.83), but it works much faster --- the average running time is 0 seconds.
 
 We can conclude that the methods of lazy classification are guaranteed to work longer than the usual classification models --- decision tree and logistic regression. Although the calculation time can be reduced using Random mode, it still remains quite large. Perhaps the speed and accuracy of the lazy classification model can be improved by using probabilistic approaches, such as boosting. It is worth noting that the Tic-Tac-Toe data set was able to achieve perfect accuracy, which was not possible for the decision tree, but there is no certainty that a similar result will be reproducible on other data sets.
 

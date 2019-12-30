@@ -51,7 +51,7 @@ class LazyClassifier(BaseEstimator, ClassifierMixin):
             if support_neg == support_pos:
                 if self.bias == 'random':
                     prediction = random.choice([True, False])
-                elif self.bias == 'true':
+                elif self.bias == 'positive':
                     prediction = True
                 else:
                     prediction = False
@@ -94,7 +94,7 @@ class LazyClassifier(BaseEstimator, ClassifierMixin):
     def scaled_y(self, y_series):
         values = sorted(y_series.unique())
         if len(values) != 2:
-            raise 'Only a binary target feature is possible'
+            raise Exception('Only a binary target feature is possible')
         self.binary_mapping[False] = values[0]
         self.binary_mapping[True] = values[1]
         return (y_series == values[1]).astype(int)
