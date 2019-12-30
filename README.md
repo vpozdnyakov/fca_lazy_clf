@@ -1,6 +1,6 @@
 # Lazy binary classifier based on Formal Concept Analysis
 
-The lazy classification method differs in that the classifier uses the entire training sample without advance training, which takes much longer, but can increase the accuracy of the classification (see _report.pdf_).
+Usually, the work of the classifier can be separated into two steps: the selection of patterns in the training sample (training) and, in fact, classification. The lazy classification method differs in that the classifier uses the entire training sample without advance training, which takes much longer, but can increase the accuracy of the classification (see _report.pdf_).
 
 ### Contents of the repository:
 * report.pdf - report of the development
