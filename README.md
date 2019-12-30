@@ -23,23 +23,31 @@ The train and test data sets must be represented as pandas.DataFrame. The classi
 ### Example
 
 ```python
-import fca_lazy_clf as fca
-import pandas as pd
-from sklearn import model_selection, metrics
+>>> import fca_lazy_clf as fca
+>>> import pandas as pd
+>>> from sklearn import model_selection, metrics
 
-data = pd.read_csv('https://datahub.io/machine-learning/tic-tac-toe-endgame/r/tic-tac-toe.csv')
+>>> data = pd.read_csv('https://datahub.io/machine-learning/tic-tac-toe-endgame/r/tic-tac-toe.csv')
+>>> data.head()
 
-X = data.iloc[:, :-1] # All attributes except the last one
-y = data.iloc[:, -1] # Last attribute
-X_train, X_test, y_train, y_test\
+   TL TM TR ML MM MR BL BM BR  class
+0  x  x  x  x  o  o  x  o  o   True
+1  x  x  x  x  o  o  o  x  o   True
+2  x  x  x  x  o  o  o  o  x   True
+3  x  x  x  x  o  o  o  b  b   True
+4  x  x  x  x  o  o  b  o  b   True
+
+>>> X = data.iloc[:, :-1] # All attributes except the last one
+>>> y = data.iloc[:, -1] # Last attribute
+>>> X_train, X_test, y_train, y_test\
     = model_selection.train_test_split(X, y, test_size=0.33, random_state=0)
 
-clf = fca.LazyClassifier(threshold=0.000001, bias='false')
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
+>>> clf = fca.LazyClassifier(threshold=0.000001, bias='false')
+>>> clf.fit(X_train, y_train)
+>>> y_pred = clf.predict(X_test)
 
-print(metrics.accuracy_score(y_test, y_pred))
->>> 0.9716088328075709
+>>> print(metrics.accuracy_score(y_test, y_pred))
+0.9716088328075709
 ```
 
 ### Parameters of the classifier
