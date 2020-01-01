@@ -26,7 +26,7 @@ The train and test datasets must be represented as ```pandas.DataFrame```. The c
 ```python
 >>> import fca_lazy_clf as fca
 >>> import pandas as pd
->>> from sklearn import model_selection, metrics
+>>> from sklearn import model_selection
 
 >>> data = pd.read_csv('https://datahub.io/machine-learning/tic-tac-toe-endgame/r/tic-tac-toe.csv')
 >>> data.head()
@@ -45,9 +45,7 @@ The train and test datasets must be represented as ```pandas.DataFrame```. The c
 
 >>> clf = fca.LazyClassifier(threshold=0.000001, bias='false')
 >>> clf.fit(X_train, y_train)
->>> y_pred = clf.predict(X_test)
-
->>> print(metrics.accuracy_score(y_test, y_pred))
+>>> clf.score(X_test, y_test)
 
 0.9716088328075709
 ```
