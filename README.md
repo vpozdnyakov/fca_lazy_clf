@@ -43,7 +43,7 @@ The train and test datasets must be represented as ```pandas.DataFrame```. The c
 >>> X_train, X_test, y_train, y_test\
     = model_selection.train_test_split(X, y, test_size=0.33, random_state=0)
 
->>> clf = fca.LazyClassifier(threshold=0.000001, bias='false')
+>>> clf = fca.LazyClassifier(threshold=0.000001, bias='negative')
 >>> clf.fit(X_train, y_train)
 >>> clf.score(X_test, y_test)
 
