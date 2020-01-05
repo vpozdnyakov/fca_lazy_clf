@@ -36,7 +36,7 @@ setuptools.setup(
 
   >>> X = data.iloc[:, :-1] # All attributes except the last one
   >>> y = data.iloc[:, -1] # Last attribute
-  >>> X_train, X_test, y_train, y_test\
+  >>> X_train, X_test, y_train, y_test
       = model_selection.train_test_split(X, y, test_size=0.33, random_state=0)
 
   >>> clf = fca.LazyClassifier(threshold=0.000001, bias='false')
