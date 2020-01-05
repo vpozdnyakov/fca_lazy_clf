@@ -50,7 +50,6 @@ setuptools.setup(
   author='Vitaliy Pozdnyakov',
   author_email='pozdnyakov.vitaliy@yandex.ru',
   url='https://github.com/vpozdnyakov/fca_lazy_clf',
-  download_url='https://github.com/vpozdnyakov/fca_lazy_clf/archive/0.2.tar.gz',
   keywords=['fca', 'formal-concept-analysis', 'lazy-learning', 'binary-classification'],
   install_requires=[
           'pandas',
