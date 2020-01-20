@@ -1,4 +1,4 @@
-# Lazy binary classifier based on Formal Concept Analysis
+# FCA lazy classifier
 
 Binary classifier based on [lazy learning approach](https://en.wikipedia.org/wiki/Lazy_learning) and [FCA (Formal Concept Analysis)](https://en.wikipedia.org/wiki/Formal_concept_analysis).
 
