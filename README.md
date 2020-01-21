@@ -1,6 +1,6 @@
-# Lazy binary classifier based on Formal Concept Analysis
+# FCA lazy classifier
 
-Usually, the work of the classifier can be divided into two steps: the selection of patterns in the training sample (training) and their use in the classification. The lazy classification method differs in that the first step is skipped, and the second step uses the entire training sample, which takes much longer, but can improve the accuracy of the classification (see [report.pdf](report/main.pdf)).
+Binary classifier based on [lazy learning approach](https://en.wikipedia.org/wiki/Lazy_learning) and [FCA (Formal Concept Analysis)](https://en.wikipedia.org/wiki/Formal_concept_analysis).
 
 ### Contents of the repository:
 
