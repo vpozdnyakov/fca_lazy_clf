@@ -3,3 +3,8 @@ fca_lazy_clf/__pycache__
 __pycache__
 fca_lazy_clf.egg-info
 .pytest_cache
+report/main.aux
+report/main.fdb_latexmk
+report/main.fls
+report/main.log
+report/main.synctex.gz
