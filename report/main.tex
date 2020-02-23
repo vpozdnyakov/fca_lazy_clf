@@ -1,6 +1,8 @@
 \documentclass{article}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{bbold}
+\usepackage{bbm}
 
 \author{Vitaliy Pozdnyakov}
 \title{Lazy binary classifier based on \\Formal Concept Analysis}
@@ -33,12 +35,18 @@ Call the set $g'$ as the description of the object $g$. Then the algorithm can b
     \item We select the $i$-th element $g_i^+$ from the set $G_+$ and calculate the intersection of its description with the description $g_\tau$, that is
     $$ \Delta_i^+ = (g_i^+)' \cap (g_\tau)'$$
     \item The proportion of objects $S_i^+$ from the set $G_-$ for which the resulting intersection is included in the descriptions of these objects is calculated. That is
-    $$S_i^+ = \frac{|\{g^-\in G_-|\Delta_i^+ \subseteq (g^- )'\}|}{|G_-|}$$
+    \begin{equation}\label{eq:1}
+        S_i^+ = \frac{|\{g^-\in G_-|\Delta_i^+ \subseteq (g^- )'\}|}{|G_-|}    
+    \end{equation}
     \item If the share of $S_i^+$ does not exceed the pre-selected threshold value $p \in [0, 1]$, then the power of $i$-th intersection $\Delta_i^+$ is taken into account in the support for a positive decision:
-    $$Support^+ = \frac{\sum_i |\Delta_i^+| \text{ if } S_i^+<p}{|G_+|}$$
+    \begin{equation}\label{eq:2}
+        Support^+ = \frac{\sum_i |\Delta_i^+| \mathbb{1} \{S_i^+<p\}}{|G_+|}    
+    \end{equation}
     This sums up the support for all elements from the positive set.
     \item Similarly, support for a negative decision is calculated
-    $$Support^- = \frac{\sum_i |\Delta_i^-| \text{ if } S_i^-<p}{|G_-|}$$
+    \begin{equation}\label{eq:3}
+        Support^- = \frac{\sum_i |\Delta_i^-| \mathbb{1} \{S_i^-<p\}}{|G_-|}    
+    \end{equation}
     \item The classifier evaluates the rule
     $$Prediction = \begin{cases}
     g_\tau \in G_+ \text{ if } Support^+ > Support^-\\
@@ -67,7 +75,7 @@ Development was based on the open library scikit-learn, using inheritance of bas
     \item ClassifierMixin --- base class for classifiers
 \end{enumerate}
 
-This allowed to focus on implementing classification rules, while methods for quality assessment and interfaces for loading training samples and unloading predictions were already ready on the library. Let's consider the main interfaces of the classifier of the scikit-learn library:
+This allowed to focus on implementing classification rules, while methods for quality assessment and interfaces for loading training samples and unloading predictions were already ready on the library. Consider the main interfaces of the classifier of the scikit-learn library:
 
 \begin{itemize}
     \item fit --- the method is used to train the model. A training sample is sent to the input, on the basis of which the classification rules are formed. Since no training is required in our case, this method is used to store the entire training sample in the classifier object. In addition, some optimization procedures are performed, which will be mentioned later.
@@ -76,7 +84,7 @@ This allowed to focus on implementing classification rules, while methods for qu
 \end{itemize}
 
 \newpage
-Now consider the algorithmic complexity of the classification algorithm. Let us denote the number of objects and attributes respectively
+Now consider the algorithmic complexity of the classification algorithm. Denote the number of objects and attributes respectively
 $$m = |G|$$
 $$n = |M|$$
 
@@ -96,7 +104,7 @@ $$Index_i = \{g| (g, m_i) \in I\}$$
 
 This operation must be performed for a positive and negative class and thus for each attribute $m_i$ we get a pair of indexes $Index_i^+$ and $Index_i^-$.
 
-Now we can use the formula to calculate $S_i^+$:
+Now we can rewrite the formula (\ref{eq:1}) as:
 $$S_i^+ = \frac{\left\vert \left\{g|g \in \left(\bigcap_{j\in \Delta_i^+} Index_j^- \right) \right\} \right\vert}{|G_-|}$$
 
 Thus, the overall complexity of the algorithm after optimization:
@@ -133,8 +141,7 @@ The testing used a cross-validation approach --- each data set is randomly divid
 The model parameters were selected as:
 \begin{itemize}
     \item \textbf{Bias} --- the decision to make if $Support^+ = Support^ -$. There are three options: Positive (always set a positive class), Negative (always set a negative class), and Random (set a random class).
-    \item \textbf{Threshold} --- threshold value for the parameter $p \in [0, 1]$, which is used in the formula
-    $$Support^+ = \frac{\sum_i |\Delta_i^+| \text{ if } S_i^+<p}{|G_+|}$$
+    \item \textbf{Threshold} --- threshold value for the parameter $p \in [0, 1]$, which is used in the formula (\ref{eq:2}) and (\ref{eq:3}).
     \item \textbf{Random} --- True to enable a mode that uses only a randomly selected portion of the training sample, False --- to disable the mode.
     \item \textbf{Sample share} --- if \textbf{Random} mode is used, this parameter sets the percentage of entries from the positive and negative set. Valid values in the range $[0, 1]$.
 \end{itemize}
